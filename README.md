@@ -63,7 +63,7 @@
 
 ### sign in
 
-- Naver, Kakao, Google, Facebook 지원
+- Naver, Kakao, Google 지원
 - 회원가입 정보
   - 필수 : id, pass, email, 이름
   - 선택 : 프로필사진, 닉네임
