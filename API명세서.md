@@ -1,66 +1,113 @@
 # API 명세서
 
-기본 라우팅 경로 : /api/v2/
+기본 라우팅 경로 : api/v1/
 
 ## 목차
+1. [계정관리](#계정-관리)
 
-1. [메인](#메인)
-2. [내 냉장고](#내-냉장고)
-
-### 메인
-
-1. [검색](#검색)
-2. [네비게이션 바](#네비게이션-바)
-
-#### 검색
-
-##### POST /search
-
+### 계정 관리
+/account
+#### POST /login
 - Request
+```json
+{
+    "token" : "아무튼 유저 고유의 토큰",
+}
+```
+- `token`은 만약 게스트일시 `None`값으로 보내주면 됨
 
-  ```json
-  {
-      "isHome" : True,
-      "minPriceRange" : 10000,
-      "maxPriceRange" : 20000,
-
-      // Selectable
-      "kindOfFood" : "koreanFood",
-      "
-
-  }
-  ```
-
-  `isHome`은 True면 집, False면 외식
-  `menuCount`는 `isHome`이 만약 True일 경우 메뉴 갯수를 뜻한다.
-  `priceRange`은 가격대를 말한다.
-
-  `kindOfFood`는 어떤 종류이 식사를 할 건지에 대해서 뜻한다.
-  위의 경우 한식을 뜻하며, 양식, 일식, 중식, 한식 이렇게 네가지가 있다.
 
 - Response
+    - Login시에 계정이 없을경우
+        404 Not found   
+        ```json
+        {
+            "is_account" : false,
+        }
+        ```
+    - Login시에 계정이 존재하는 경우
+        200 Succes
+        ```json
+        {
+            "email" : "qudwls185@naver.com",
+        }
+        ```
 
-  ```json
-      {
-          "isHome" : true,
-          "menu" : {
-              "recipe": "...",
-              "nutritionInformation" : {
-                  ...
-              },
-              "warn": "...",
-              "price": 10000
-          },
-      }
-  ```
 
-  ```json
-      {
-          "isHome" : false,
-          "price" : 10000,
-          "nutritionInformation" : {
-              ...
-          },
-          "warn" : "..."
-      }
-  ```
+
+#### POST /register
+- Request
+```json
+{
+    "token" : "대충 토큰, 어떻게 생겼을려나",
+    "id" : "qudwls185@naver.com",
+    "login_way" : "naver",
+    "preferred_diet" : "저는!, 민초카츠를! 좋아합니다!",
+    "nickname" : "똑식이",
+}
+```
+
+- Response
+얘는 못쓰겠다.
+
+
+#### POST /input_information
+- Request
+```json
+{
+    "_id" : "유저 고유의 토큰",
+    "like_food" : "이걸 어떤 타입으로 줘야돼? 이걸..??",
+    "allergy" : {
+        "meat" : true,
+        "fish" : true,
+        "dairy_product" : true,
+        "vegetable" : true,
+    },
+    
+}
+```
+- `_id`는 해당 계정의 고유 id값
+
+- Response
+```header
+200 Succes signal
+```
+
+#### POST /logout
+- Request
+```json
+{
+    token: "something token",
+}
+```
+
+- Response
+    - 204 Not Conetent
+    
+    - 404 Not found
+
+
+#### PATCH /modify_profile
+- Request
+    - ex 1
+    ```json
+    {
+        "name" : "민초카츠"
+    }
+    ```
+    - ex 2
+    ```json
+    {
+        "preferred_diet" : "민초카츠만세"
+    }
+    ```
+    - ex 3
+    ```json
+    {
+        "hate_diet" : "해리포터 젤리빈"
+    }
+    ```
+
+- Response
+    - 204 not content
+    - 404 not found
