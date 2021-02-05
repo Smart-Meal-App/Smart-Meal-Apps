@@ -42,7 +42,14 @@
     "token" : "대충 토큰, 어떻게 생겼을려나",
     "id" : "qudwls185@naver.com",
     "login_way" : "naver",
-    "preferred_diet" : "저는!, 민초카츠를! 좋아합니다!",
+    "preferred_diet" : [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
     "nickname" : "똑식이",
 }
 ```
@@ -55,8 +62,15 @@
 - Request
 ```json
 {
-    "_id" : "유저 고유의 토큰",
-    "like_food" : "이걸 어떤 타입으로 줘야돼? 이걸..??",
+    "token" : "유저 고유의 토큰",
+    "preferred_diet" : [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
     "allergy" : {
         "meat" : true,
         "fish" : true,
@@ -70,14 +84,14 @@
 
 - Response
 ```header
-200 Succes signal
+204 Not content
 ```
 
 #### POST /logout
 - Request
 ```json
 {
-    token: "something token",
+    "token" : "something token",
 }
 ```
 
