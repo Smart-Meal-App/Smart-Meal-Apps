@@ -120,7 +120,32 @@
 }
 ```
 
-
+#### GET /fast_search/{keyword}
+- Response
+```json
+{
+    "menu" : [
+        {
+            "name" : "민초카츠",
+            "price" : 20000,
+            "allergy" : [
+                "민트초코",
+                "튀김가루"
+            ],
+            "image_url" : "menu/stir-fried-Rice-Cake"
+        },
+        {
+            "name" : "민초카츠",
+            "price" : 20000,
+            "allergy" : [
+                "민트초코",
+                "튀김가루"
+            ],
+            "image_url" : "menu/stir-fried-Rice-Cake"
+        },
+    ]
+}
+```
 #### POST /search
 - Request
     - 외식의 경우
@@ -176,7 +201,37 @@
     ]
 }
 ```
+#### GET /load/food/{id}
+메뉴를 불러옵니다.
+id는 메뉴 고유의 id입니다.
 
+- Response
+```json
+{
+    "name" : "양파",
+    "efficacy" : "껍질 제거시 눈이 아파옴",
+    "price" : 20000,
+    "image_url" : "/material/onion",
+    "nutrients" : [
+        123,
+        23,
+        55,
+        65,
+        43,
+        24
+    ],
+    "special-note" : "주저리주저리",
+    "recipe" : [
+        3,
+        2,
+        1,
+        54,
+        89,
+        34
+    ],
+    "recommended_recipe_url" : "대충 링크"
+}
+```
 #### GET /meal/popular
 인기 식사를 10개 가져옵니다.
 
