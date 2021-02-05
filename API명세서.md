@@ -29,7 +29,7 @@
         200 Succes
         ```json
         {
-            "email" : "qudwls185@naver.com",
+            "is_account" : true,
         }
         ```
 
@@ -50,37 +50,15 @@
         4,
         5
     ],
-    "nickname" : "똑식이",
-}
-```
-
-- Response
-얘는 못쓰겠다.
-
-
-#### POST /input_information
-- Request
-```json
-{
-    "token" : "유저 고유의 토큰",
-    "preferred_diet" : [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-    ],
     "allergy" : {
         "meat" : true,
         "fish" : true,
         "dairy_product" : true,
         "vegetable" : true,
     },
-    
+    "nickname" : "똑식이",
 }
-```
-- `_id`는 해당 계정의 고유 id값
+- `token`는 해당 계정의 고유 id값
 
 - Response
 ```header
@@ -106,19 +84,17 @@
     - ex 1
     ```json
     {
+        "token" : "대충 토큰",
         "name" : "민초카츠"
     }
     ```
     - ex 2
     ```json
     {
-        "preferred_diet" : "민초카츠만세"
-    }
-    ```
-    - ex 3
-    ```json
-    {
-        "hate_diet" : "해리포터 젤리빈"
+        "token" : "대충 토큰",
+        "preferred_diet" : [
+            1, 2, 3, 5
+        ]
     }
     ```
 
