@@ -6,6 +6,7 @@
 1. [계정관리](#계정-관리)
 2. [메인페이지](#메인페이지)
 
+
 ### 계정 관리
 /account
 #### POST /login
@@ -16,7 +17,6 @@
 }
 ```
 - `token`은 만약 게스트일시 `None`값으로 보내주면 됨
-
 
 - Response
     - Login시에 계정이 없을경우
@@ -30,7 +30,7 @@
         200 Succes
         ```json
         {
-            "email" : "qudwls185@naver.com",
+            "is_account" : true,
         }
         ```
 
@@ -43,42 +43,34 @@
     "token" : "대충 토큰, 어떻게 생겼을려나",
     "id" : "qudwls185@naver.com",
     "login_way" : "naver",
-    "preferred_diet" : "저는!, 민초카츠를! 좋아합니다!",
-    "nickname" : "똑식이",
-}
-```
-
-- Response
-얘는 못쓰겠다.
-
-
-#### POST /input_information
-- Request
-```json
-{
-    "_id" : "유저 고유의 토큰",
-    "like_food" : "이걸 어떤 타입으로 줘야돼? 이걸..??",
+    "preferred_diet" : [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
     "allergy" : {
         "meat" : true,
         "fish" : true,
         "dairy_product" : true,
         "vegetable" : true,
     },
-    
+    "nickname" : "똑식이",
 }
-```
-- `_id`는 해당 계정의 고유 id값
+- `token`는 해당 계정의 고유 id값
 
 - Response
 ```header
-200 Succes signal
+204 Not content
 ```
 
 #### POST /logout
 - Request
 ```json
 {
-    token: "something token",
+    "token" : "something token",
 }
 ```
 
@@ -93,19 +85,17 @@
     - ex 1
     ```json
     {
+        "token" : "대충 토큰",
         "name" : "민초카츠"
     }
     ```
     - ex 2
     ```json
     {
-        "preferred_diet" : "민초카츠만세"
-    }
-    ```
-    - ex 3
-    ```json
-    {
-        "hate_diet" : "해리포터 젤리빈"
+        "token" : "대충 토큰",
+        "preferred_diet" : [
+            1, 2, 3, 5
+        ]
     }
     ```
 
