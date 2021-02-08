@@ -42,7 +42,7 @@
 {
     "token" : "대충 토큰, 어떻게 생겼을려나",
     "id" : "qudwls185@naver.com",
-    "login_way" : "naver",
+    "login_way" : 0,
     "preferred_diet" : [
         0,
         1,
@@ -438,4 +438,4 @@ _id는 식재료 고유의 아이디이다.
 ```
 
 nutrients는 mg기준입니다.
-recipe는 각 레시피의 고유 번호입니다.
+recipe는 각 레시피의 고유 번호입니다.\
