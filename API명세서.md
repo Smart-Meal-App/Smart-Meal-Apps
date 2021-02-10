@@ -404,6 +404,15 @@ token은 계정 고유의 값
 }
 ```
 
+- Response
+```header
+204 Not Content
+```
+
+```header
+404 Not Found
+```
+
 #### GET /material/load/{_id}
 식재료의 상세정보를 본다.
 
