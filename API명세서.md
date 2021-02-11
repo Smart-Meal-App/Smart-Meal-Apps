@@ -42,7 +42,7 @@
 {
     "token" : "대충 토큰, 어떻게 생겼을려나",
     "id" : "qudwls185@naver.com",
-    "login_way" : "naver",
+    "login_way" : 0,
     "preferred_diet" : [
         0,
         1,
@@ -404,6 +404,15 @@ token은 계정 고유의 값
 }
 ```
 
+- Response
+```header
+204 Not Content
+```
+
+```header
+404 Not Found
+```
+
 #### GET /material/load/{_id}
 식재료의 상세정보를 본다.
 
@@ -476,3 +485,4 @@ token은 유저 고유의 token입니다.
 
 }
 ```
+
