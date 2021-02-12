@@ -447,4 +447,42 @@ _id는 식재료 고유의 아이디이다.
 ```
 
 nutrients는 mg기준입니다.
-recipe는 각 레시피의 고유 번호입니다.\
+recipe는 각 레시피의 고유 번호입니다.
+
+
+### 더보기
+
+#### GET /load/profile/{token}
+token은 유저 고유의 token입니다.
+
+- Response
+```json
+{
+    "preferred_diet" : [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "allergy" : {
+        "meat" : true,
+        "fish" : true,
+        "dairy_product" : true,
+        "vegetable" : true,
+    },
+    "announcement" : [
+        {
+            "image_url" : "announcement/1",
+            "announcement_number" : 1
+        },
+        {
+            "image_url" : "announcement/2",
+            "announcement_number" : 2
+        }
+    ],
+
+}
+```
+
